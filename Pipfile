@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+python-dotenv = "*"
+bs4 = "*"
 
 [dev-packages]
 
