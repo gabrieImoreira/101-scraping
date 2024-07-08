@@ -11,11 +11,15 @@ payload = {
 }
 data = []
 
+# Start the session and doing the login using the payload and keep the session alive
 with requests.Session() as session:
+    # Login
     response = session.post(url_login, data=payload)
     if response.status_code == 200:
+        # Get the course
         response = session.get(url_course)
         if response.status_code == 200:
+            # Get the content
             content = response.text
             soup = BeautifulSoup(content, 'html.parser')
             elemento = soup.select_one('#transcription')
